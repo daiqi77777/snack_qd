@@ -10,7 +10,7 @@
       </el-form-item>
       <el-form-item :label="$t('captcha')" prop="captcha">
         <div class="captcha-code">
-          <el-input v-model="form.captcha"></el-input>
+          <el-input v-model="captcha.phrase"></el-input>
         </div>
         <div class="captcha-img" @click="refreshCaptcha">
           <img :src="captcha.imageContent" style="height:30px"/>
@@ -39,6 +39,7 @@ const captcha = reactive({
   key: null,
   imageContent: null,
   expiredAt: null,
+  phrase:null,
 })
 
 const refreshCaptcha = () => {
@@ -47,6 +48,7 @@ const refreshCaptcha = () => {
     captcha.key = data.key
     captcha.imageContent = data.image_content
     captcha.expiredAt = data.expired_at
+    captcha.phrase = data.phrase
   })
 }
 
@@ -69,17 +71,17 @@ const rules = {
 const form = ref({
   username: 'admin',
   password: 'secret',
-  captcha: 'ljtr6',
+  captcha: '1231',
 })
 
 const loginForm = ref(null)
 
 const submitForm = () => {
-  console.log({captcha_key: captcha.key, ...form.value})
+  // console.log({captcha_key: captcha.key, ...form.value})
   loginForm.value.validate((valid) => {
     if (valid) {
+      form.value.captcha=captcha.phrase
       const data = {captcha_key: captcha.key, ...form.value}
-
       store.dispatch("loginHandle", data).then(() => {
         router.push({
           name: config.homeRouteName

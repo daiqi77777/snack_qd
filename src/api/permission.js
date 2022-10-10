@@ -1,10 +1,10 @@
 import http from '@/utils/http'
 
 export const loadPermissions = () => {
-  return http.get('http://localhost/snack/public/api/permission-user-all')
+  return http.get('http://localhost/snack_forum/public/api/permission-user-all')
 }
 
-const basicRoute = '/api/permission'
+const basicRoute = 'http://localhost/snack_forum/public/api/permission'
 
 export const getPermissionList = (params) => {
   return http.get(basicRoute, {

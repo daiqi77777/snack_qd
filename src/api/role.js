@@ -1,6 +1,6 @@
 import http from '@/utils/http'
 
-const basicRoute = '/api/role'
+const basicRoute = 'http://localhost/snack_forum/public/api/role'
 
 export const getRoleList = (params) => {
   return http.get(basicRoute, {
@@ -9,15 +9,15 @@ export const getRoleList = (params) => {
 }
 
 export const guardNameRoles = (guardName) => {
-  return http.get(`/api/guard-name-roles/${guardName}`)
+  return http.get(`http://localhost/snack_forum/public/api/guard-name-roles/${guardName}`)
 }
 
 export const rolePermission = (id) => {
-  return http.get(`/api/role/${id}/permissions`)
+  return http.get(`http://localhost/snack_forum/public/api/role/${id}/permissions`)
 }
 
 export const roleAssignPermission = (id, permissions) => {
-  return http.put(`/api/role/${id}/permissions`, {
+  return http.put(`http://localhost/snack_forum/public/api/role/${id}/permissions`, {
     permissions
   })
 }
