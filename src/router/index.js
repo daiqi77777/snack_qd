@@ -20,6 +20,7 @@ router.beforeEach((to, from, next) => {
         if (!token || !token.hasOwnProperty('token')) {
           reject({ name : config.loginRouteName})
         } else {
+
           if (!store.getters.token) {
             store.commit('SET_TOKEN', {token})
           }

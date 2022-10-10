@@ -1,6 +1,6 @@
 import http from '@/utils/http'
 
-const basicRoute = 'http://localhost/snack_forum/public/api/permission-group'
+const basicRoute = 'http://localhost/snack_forum/public/web/permission-group'
 
 export const getPermissionGroupList = (params) => {
   return http.get(basicRoute, {
@@ -13,7 +13,7 @@ export const getPermissionGroupAll = () => {
 }
 
 export const guardNameForPermissions = (guardName) => {
-  return http.get(`http://localhost/snack_forum/public/api/guard-name-for-permissions/${guardName}`)
+  return http.get(`http://localhost/snack_forum/public/web/guard-name-for-permissions/${guardName}`)
 }
 
 export const addPermissionGroup = (data) => {

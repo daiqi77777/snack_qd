@@ -21,7 +21,6 @@ const actions = {
       return login(data)
         .then(response => {
           const token = response.data.data
-
           commit('SET_TOKEN', {token})
 
           resolve(setToken(token))
