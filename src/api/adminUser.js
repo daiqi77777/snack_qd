@@ -17,7 +17,8 @@ export const assginRoles = (id, guardName, roles) => {
 }
 
 export const addAdminUser = (data) => {
-  return http.post('http://localhost/snack_forum/public/web/admin-user', data)
+   return http.post('http://localhost/snack_forum/public/web/admin-user', data)
+  //return http.post('http://localhost/snack_forum/public/web/post/audit', data)
 }
 
 export const editAdminUser = (id, data) => {

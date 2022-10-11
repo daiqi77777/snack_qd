@@ -32,7 +32,21 @@ export function tableDefaultData() {
 
 
 export function tableDataFormat(response, table) {
-  table.data = response.data.data
+
+  table.data = response.data.data.list
+
+  let curPage = response.data.data.curPage
+  let count = response.data.data.count
+  table.pagination = {
+    currentPage: curPage,
+    pageSize: 20,
+    total: count,
+    from: 1,
+    lastPage:1,
+    to: 1
+  }
+   /*
+   table.data = response.data.data
 
   let meta = response.data.meta
   table.pagination = {
@@ -42,7 +56,7 @@ export function tableDataFormat(response, table) {
     from: meta.from,
     lastPage: meta.last_page,
     to: meta.to
-  }
+  }*/
 
   table.loading = false
 }
